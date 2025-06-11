@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <title>hw9_5</title>
+    <style>
+        .course-container {
+            border: 2px solid orangered;
+            padding: 20px;
+            margin: 20px;
+        }
+        .info-box {
+            border: 1px solid navy;
+            margin: 5px 0;
+            padding: 5px;
+        }
+        .module-list {
+            border: 2px solid navy;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .module-item {
+            border: 1px solid navy;
+            margin: 3px 0;
+            padding: 3px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    const coursesArray = [
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'git', 'java core', 'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'python core', 'python advanced']
+        },
+
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js', 'python', 'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
+
+    coursesArray.forEach(course => {
+        const courseDiv = document.createElement('div');
+        courseDiv.classList.add('course-container');
+
+        const titleDiv = document.createElement('div');
+        titleDiv.classList.add('info-box');
+        titleDiv.innerText = `Title: ${course.title}`;
+
+        const monthDiv = document.createElement('div');
+        monthDiv.classList.add('info-box');
+        monthDiv.innerText = `Month Duration: ${course.monthDuration}`;
+
+        const hourDiv = document.createElement('div');
+        hourDiv.classList.add('info-box');
+        hourDiv.innerText = `Hour Duration: ${course.hourDuration}`;
+
+        const modulesDiv = document.createElement('div');
+        modulesDiv.classList.add('module-list');
+
+        course.modules.forEach(module => {
+            const moduleItem = document.createElement('div');
+            moduleItem.classList.add('module-item');
+            moduleItem.innerText = module;
+            modulesDiv.appendChild(moduleItem);
+        });
+
+        courseDiv.append(titleDiv, monthDiv, hourDiv, modulesDiv);
+        document.body.appendChild(courseDiv);
+    });
+</script>
+</body>
+</html>
