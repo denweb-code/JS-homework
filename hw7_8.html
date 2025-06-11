@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hw7_8</title>
+</head>
+<body>
+<script>
+    function Cinderella(name, age, footSize) {
+        this.name = name;
+        this.age = age;
+        this.footSize = footSize;
+    }
+
+    function Prince(name, age, slipper) {
+        this.name = name;
+        this.age = age;
+        this.slipper = slipper;
+    }
+
+    const cinderellas = [
+        new Cinderella('Anna', 18, 35),
+        new Cinderella('Bella', 19, 36),
+        new Cinderella('Clara', 20, 37),
+        new Cinderella('Diana', 21, 38),
+        new Cinderella('Emma', 22, 39),
+        new Cinderella('Fiona', 23, 36),
+        new Cinderella('Grace', 24, 40),
+        new Cinderella('Hannah', 25, 35),
+        new Cinderella('Isabella', 26, 37),
+        new Cinderella('Julia', 27, 38)
+    ];
+
+    const prince = new Prince('Edward', 25, 36);
+
+    let matchedCinderellaLoop = null;
+    for (const cinderella of cinderellas) {
+        if (cinderella.footSize === prince.slipper) {
+            matchedCinderellaLoop = cinderella;
+            break; // Stop at the first match
+        }
+    }
+
+    const matchedCinderellaFind = cinderellas.find(cinderella => cinderella.footSize === prince.slipper);
+
+    prince.wife = matchedCinderellaFind;
+
+    console.log('Cinderellas:', cinderellas);
+    console.log('Prince:', prince);
+    console.log('Matched Cinderella (via loop):', matchedCinderellaLoop);
+    console.log('Matched Cinderella (via find):', matchedCinderellaFind);
+</script>
+</body>
+</html>

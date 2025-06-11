@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hw7_1</title>
+</head>
+<body>
+<script>
+  function User(id, name, surname, email, phone) {
+    this.id = id;
+    this.name = name;
+    this.surname = surname;
+    this.email = email;
+    this.phone = phone;
+  }
+
+  const user = new User(1, 'kokos', 'asdqwe', '+964657983');
+  console.log(user);
+
+  let users = [
+    new User(1, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(2, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(3, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(4, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(5, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(6, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(7, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(8, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(9, 'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983'),
+    new User(10,'kokos', 'asdqwe', 'kokos@asdqwe.com', '+964657983')
+  ];
+
+  console.log(users);
+</script>
+</body>
+</html>
