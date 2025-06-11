@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <title>hw5_13</title>
+</head>
+<body>
+<script>
+  const exchange = (sumUAH, currencyValues, exchangeCurrency) => {
+    const targetCurrency = currencyValues.find(item => item.currency === exchangeCurrency);
+    if (!targetCurrency || sumUAH < 0 || !Number.isFinite(sumUAH)) {
+      return null;
+    }
+    return sumUAH / targetCurrency.value;
+  };
+  console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'USD'));
+  console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'EUR'));
+  console.log(exchange(0, [{currency: 'USD', value: 40}], 'USD'));
+  console.log(exchange(10000, [{currency: 'USD', value: 40}], 'GBP'));
+  console.log(exchange(-10000, [{currency: 'USD', value: 40}], 'USD'));
+</script>
+</body>
+</html>
