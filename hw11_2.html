@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hw11_2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .recipe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .recipe {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .recipe h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        .recipe-details {
+            margin-bottom: 15px;
+        }
+        .recipe-details p {
+            margin: 5px 0;
+        }
+        .ingredients {
+            margin-top: 10px;
+        }
+        .ingredients ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        .loading {
+            text-align: center;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<div class="recipe-container">
+    <h1>Recipes</h1>
+    <div id="recipes"></div>
+    <div id="loading" class="loading">Loading...</div>
+    <div id="error" class="error"></div>
+</div>
+
+<script>
+    async function fetchRecipes() {
+        try {
+            const response = await fetch('https://dummyjson.com/recipes');
+            if (!response.ok) {
+                throw new Error('Failed to fetch recipes');
+            }
+            const data = await response.json();
+            displayRecipes(data.recipes);
+        } catch (error) {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('error').textContent = `Error: ${error.message}`;
+        }
+    }
+
+    function displayRecipes(recipes) {
+        const recipesDiv = document.getElementById('recipes');
+        recipesDiv.innerHTML = '';
+        document.getElementById('loading').style.display = 'none';
+
+        if (recipes.length === 0) {
+            recipesDiv.innerHTML = '<p>No recipes found.</p>';
+            return;
+        }
+
+        recipes.forEach(recipe => {
+            const recipeDiv = document.createElement('div');
+            recipeDiv.className = 'recipe';
+
+            const ingredientsList = recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('');
+
+            recipeDiv.innerHTML = `
+                    <h2>${recipe.name}</h2>
+                    <div class="recipe-details">
+                        <p><strong>ID:</strong> ${recipe.id}</p>
+                        <p><strong>Cuisine:</strong> ${recipe.cuisine}</p>
+                        <p><strong>Difficulty:</strong> ${recipe.difficulty}</p>
+                        <p><strong>Prep Time:</strong> ${recipe.prepTimeMinutes} minutes</p>
+                        <p><strong>Cook Time:</strong> ${recipe.cookTimeMinutes} minutes</p>
+                        <p><strong>Servings:</strong> ${recipe.servings}</p>
+                        <p><strong>Calories per Serving:</strong> ${recipe.caloriesPerServing} kcal</p>
+                        <div class="ingredients">
+                            <strong>Ingredients:</strong>
+                            <ul>${ingredientsList}</ul>
+                        </div>
+                        <p><strong>Instructions:</strong> ${recipe.instructions.join('<br>')}</p>
+                    </div>
+                `;
+
+            recipesDiv.appendChild(recipeDiv);
+        });
+    }
+
+    window.onload = fetchRecipes;
+</script>
+</body>
+</html>
