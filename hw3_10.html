@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hw3_10</title>
+</head>
+<body>
+<script>
+  let array = [2, 17, 13, 6, 22, 31, 45, 66, 100, -18];
+
+  console.log('1.while:');
+  let i = 0;
+  while (i < array.length) {
+    console.log(array[i]);
+    i++;
+  }
+
+  console.log('2.for:');
+  for (let i = 0; i < array.length; i++) {
+    console.log(array[i]);
+  }
+
+  console.log('3.непарні(while):');
+  i = 1;
+  while (i < array.length) {
+    console.log(array[i]);
+    i += 2;
+  }
+
+  console.log('4.непарні(for):');
+  for (let i = 1; i < array.length; i += 2) {
+    console.log(array[i]);
+  }
+
+  console.log('5.Парні(while):');
+  i = 0;
+  while (i < array.length) {
+    if (array[i] % 2 === 0) {
+      console.log(array[i]);
+    }
+    i++;
+  }
+
+  console.log('6.Парні(for):');
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] % 2 === 0) {
+      console.log(array[i]);
+    }
+  }
+
+  console.log('7.кратні 3,"okten":');
+  let modifiedArray = [...array];
+  for (let i = 0; i < modifiedArray.length; i++) {
+    if (modifiedArray[i] % 3 === 0) {
+      modifiedArray[i] = 'okten';
+    }
+  }
+  console.log(modifiedArray);
+
+  console.log('8.реверс:');
+  for (let i = array.length - 1; i >= 0; i--) {
+    console.log(array[i]);
+  }
+
+
+  console.log('9.1.while зворотній:');
+  i = array.length - 1;
+  while (i >= 0) {
+    console.log(array[i]);
+    i--;
+  }
+
+  console.log('9.2.for зворотній:');
+  for (let i = array.length - 1; i >= 0; i--) {
+    console.log(array[i]);
+  }
+
+  console.log('9.3.непарні while, зворотні:');
+  i = array.length - 1;
+  if (i % 2 === 0) i--;
+  while (i >= 0) {
+    console.log(array[i]);
+    i -= 2;
+  }
+
+  console.log('9.4.непарні for, зворотні:');
+  for (let i = array.length - 1; i >= 0; i -= 2) {
+    if (i % 2 === 0) i--;
+    console.log(array[i]);
+  }
+
+  console.log('9.5. Парні(while, зворотні):');
+  i = array.length - 1;
+  while (i >= 0) {
+    if (array[i] % 2 === 0) {
+      console.log(array[i]);
+    }
+    i--;
+  }
+
+  console.log('9.6. Парні(for, зворотні):');
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (array[i] % 2 === 0) {
+      console.log(array[i]);
+    }
+  }
+
+  console.log('9.7.кратні 3okten зворотні:');
+  modifiedArray = [...array];
+  for (let i = modifiedArray.length - 1; i >= 0; i--) {
+    if (modifiedArray[i] % 3 === 0) {
+      modifiedArray[i] = 'okten';
+    }
+  }
+  console.log(modifiedArray);
+</script>
+</body>
+</html>

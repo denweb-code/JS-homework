@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hw3_14</title>
+</head>
+<body>
+<script>
+    const evenArray = [];
+    for (let i = 2; evenArray.length < 50; i += 2) {
+    evenArray.push(i);
+  }
+    console.log("парні числа:", evenArray);
+
+    const oddArray = [];
+    for (let i = 1; oddArray.length < 50; i += 2) {
+    oddArray.push(i);
+  }
+    console.log("непарні числа:", oddArray);
+
+    const randomArray = [];
+    for (let i = 0; i < 20; i++) {
+    randomArray.push(Math.floor(Math.random() * 101)); // 0–100
+  }
+    console.log("рандомні числа:", randomArray);
+
+    const randomRangeArray = [];
+    for (let i = 0; i < 20; i++) {
+    randomRangeArray.push(Math.floor(Math.random() * (732 - 8 + 1)) + 8);
+  }
+    console.log("рандомні числа:", randomRangeArray);
+
+    console.log("Кожен третій елемент");
+    for (let i = 2; i < randomRangeArray.length; i += 3) {
+    console.log(randomRangeArray[i]);
+  }
+
+    console.log("Кожен парний третій елемент:");
+    for (let i = 2; i < randomRangeArray.length; i += 3) {
+    if (randomRangeArray[i] % 2 === 0) {
+    console.log(randomRangeArray[i]);
+  }
+  }
+
+    const evenThirdElements = [];
+    for (let i = 2; i < randomRangeArray.length; i += 3) {
+    if (randomRangeArray[i] % 2 === 0) {
+    evenThirdElements.push(randomRangeArray[i]);
+  }
+  }
+    console.log("кожний третій парний елемент:", evenThirdElements);
+
+    const exampleArray = [1, 2, 3, 5, 7, 9, 56, 8, 67];
+    console.log("парне число справа:");
+    for (let i = 0; i < exampleArray.length - 1; i++) {
+    if (exampleArray[i + 1] % 2 === 0) {
+    console.log(exampleArray[i]);
+  }
+  }
+
+    const purchases = [100, 250, 50, 168, 120, 345, 188];
+    const total = purchases.reduce((sum, value) => sum + value, 0);
+    const average = total / purchases.length;
+    console.log("Середній чек:", average);
+
+    const randomForMultiply = [];
+    const multipliedArray = [];
+    for (let i = 0; i < 10; i++) {
+    const num = Math.floor(Math.random() * 21);
+    randomForMultiply.push(num);
+    multipliedArray.push(num * 5);
+  }
+    console.log("Початковий рандомний масив:", randomForMultiply);
+    console.log("Помножений на 5:", multipliedArray);
+
+    const mixedArray = [42, "hello", true, null, 10, "100", 5.5, false, {}, 99];
+    const numbersOnly = [];
+    for (const item of mixedArray) {
+    if (typeof item === 'number') {
+    numbersOnly.push(item);
+  }
+  }
+    console.log("Масив чисел:", numbersOnly);
+</script>
+</body>
+</html>

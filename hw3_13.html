@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hw3_13</title>
+</head>
+<body>
+<script>
+    const books = [
+    {
+      title: "Історія",
+      pages: 1225,
+      authors: ["1"],
+      genres: ["роман", "історичний", "філософський"]
+    },
+    {
+      title: "Гаррі Поттер",
+      pages: 309,
+      authors: ["Ролінґ"],
+      genres: ["фентезі", "пригоди"]
+    },
+    {
+      title: "книга3",
+      pages: 840,
+      authors: ["Автор3"],
+      genres: ["роман", "психологічний", "філософський"]
+    },
+    {
+      title: "Ai",
+      pages: 255,
+      authors: ["Автор 4"],
+      genres: ["фантастика", "наукова фантастика"]
+    },
+    {
+      title: "Книга5",
+      pages: 416,
+      authors: ["Автор5"],
+      genres: ["фентезі", "гумор", "апокаліпсис", "сатира"]
+    },
+    {
+      title: "Убити пересмішника",
+      pages: 336,
+      authors: ["Гарпер Лі"],
+      genres: ["роман", "драма"]
+    },
+    {
+      title: "книга рандом",
+      pages: 180,
+      authors: ["Автор"],
+      genres: ["експериментальна"]
+    }
+    ];
+
+    const maxPages = Math.max(...books.map(book => book.pages));
+    const biggestBooks = books.filter(book => book.pages === maxPages);
+
+    const maxGenres = Math.max(...books.map(book => book.genres.length));
+    const mostGenresBooks = books.filter(book => book.genres.length === maxGenres);
+
+    const maxTitleLength = Math.max(...books.map(book => book.title.length));
+    const longestTitleBooks = books.filter(book => book.title.length === maxTitleLength);
+
+    const twoAuthorsBooks = books.filter(book => book.authors.length === 2);
+
+    const oneAuthorBooks = books.filter(book => book.authors.length === 1);
+
+    const output = document.getElementById('output');
+
+    function displayBooks(title, booksList) {
+    output.innerHTML += `<h2>${title}</h2>`;
+    if (booksList.length === 0) {
+    output.innerHTML += `<p>Не знайдено</p>`;
+    return;
+  }
+    booksList.forEach(book => {
+    output.innerHTML += `
+          <p><strong>Назва:</strong> ${book.title}<br>
+          <strong>Сторінок:</strong> ${book.pages}<br>
+          <strong>Автор(и):</strong> ${book.authors.join(', ')}<br>
+          <strong>Жанри:</strong> ${book.genres.join(', ')}</p>
+        `;
+  });
+  }
+
+    displayBooks("📚 Найбільша книжка (за кількістю сторінок):", biggestBooks);
+    displayBooks("🎭 Книжка/ки з найбільшою кількістю жанрів:", mostGenresBooks);
+    displayBooks("🔠 Книжка/ки з найдовшою назвою:", longestTitleBooks);
+    displayBooks("👥 Книжка/ки з двома авторами:", twoAuthorsBooks);
+    displayBooks("🧍 Книжка/ки з одним автором:", oneAuthorBooks);
+</script>
+</body>
+</html>

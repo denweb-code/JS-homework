@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hw3_17</title>
+</head>
+<body>
+<script>
+        const letters = ['a', 'b', 'c'];
+
+        //1for
+        let word1 = '';
+        for (let i = 0; i < letters.length; i++) {
+        word1 += letters[i];
+    }
+        console.log("Слово з for:", word1);
+
+        //2while
+        let word2 = '';
+        let i = 0;
+        while (i < letters.length) {
+        word2 += letters[i];
+        i++;
+    }
+        console.log("Слово з while:", word2);
+
+        //3for_of
+        let word3 = '';
+        for (const letter of letters) {
+        word3 += letter;
+    }
+        console.log("Слово з for...of:", word3);
+
+</script>
+</body>
+</html>

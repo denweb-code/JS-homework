@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>hw3_11</title>
+</head>
+<body>
+<script>
+//1
+  console.log('#GamKju89ob - Числові елементи:');
+  let numbers = [5, 12, 23, 8, 17, 30, 44, 61, 79, 3];
+  for (let num of numbers) {
+    console.log(num);
+  }
+//2
+  console.log('#Bm76xmg - Строкові елементи:');
+  let strings = ['apple', 'blue', 'code', 'door', 'elephant', 'forest', 'green', 'house', 'ice', 'juice'];
+  for (let str of strings) {
+    console.log(str);
+  }
+//3
+  console.log('#u3vmD0YJXh - Елементи будь-якого типу:');
+  let mixed = [42, 'hello', true, 3.14, 'world', false, 100, 'test', null, undefined];
+  for (let item of mixed) {
+    console.log(item);
+  }
+//4
+  console.log('#9stMq2ou - Тільки булеві елементи:');
+  let mixedTypes1 = [15, 'text', true, 27.5, false, 'book', 99, true, 'sun', false];
+  for (let item of mixedTypes1) {
+    if (typeof item === 'boolean') {
+      console.log(item);
+    }
+  }
+//5
+  console.log('#mK4pmM4 - Тільки числові елементи:');
+  let mixedTypes2 = [15, 'text', true, 27.5, false, 'book', 99, true, 'sun', 42];
+  for (let item of mixedTypes2) {
+    if (typeof item === 'number') {
+      console.log(item);
+    }
+  }
+
+  //6
+  console.log('Останнє завдання - Тільки рядкові елементи:');
+  let mixedTypes3 = [15, 'text', true, 27.5, false, 'book', 99, true, 'sun', 'cloud'];
+  for (let item of mixedTypes3) {
+    if (typeof item === 'string') {
+      console.log(item);
+    }
+  }
+</script>
+</body>
+</html>
