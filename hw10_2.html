@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>hw10_2</title>
+</head>
+<body>
+
+<h2>Введіть вік:</h2>
+<input type="number" id="ageInput" placeholder="Ваш вік">
+<button id="checkBtn">Перевірити</button>
+
+<p id="result"></p>
+
+<script>
+    const button = document.getElementById('checkBtn');
+    const ageInput = document.getElementById('ageInput');
+    const result = document.getElementById('result');
+
+    button.addEventListener('click', () => {
+        const age = parseInt(ageInput.value);
+
+        if (isNaN(age)) {
+            result.textContent = 'Будь ласка, введіть коректний вік.';
+        } else if (age < 18) {
+            result.textContent = 'Вам ще немає 18 років.';
+        } else {
+            result.textContent = 'Ви повнолітні.';
+        }
+    });
+</script>
+
+</body>
+</html>

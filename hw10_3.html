@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>hw10_3</title>
+</head>
+<body>
+
+<h2>Заповніть форму</h2>
+<form name="userForm">
+    <input type="text" name="name">
+    <input type="text" name="surname">
+    <input type="number" name="age">
+    <button type="submit">готово</button>
+</form>
+
+<div id="output" style="margin-top: 20px; font-weight: bold;"></div>
+
+<script>
+    const form = document.forms.userForm;
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const name = form.name.value.trim();
+        const surname = form.surname.value.trim();
+        const age = +form.age.value;
+
+        const user = { name, surname, age };
+        console.log(user);
+
+        output.textContent = `Користувач: ${JSON.stringify(user)}`;
+    });
+</script>
+
+</body>
+</html>
