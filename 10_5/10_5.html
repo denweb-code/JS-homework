@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>hw10_5</title>
+</head>
+<body>
+<h1>Головна</h1>
+
+<script>
+    let sessions = JSON.parse(localStorage.getItem('sessionsList')) || [];
+    const now = new Date().toLocaleString();
+    sessions.push(now);
+    localStorage.setItem('sessionsList', JSON.stringify(sessions));
+</script>
+</body>
+</html>

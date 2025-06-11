@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>hw10_5 sesions</title>
+</head>
+<body>
+<h1>Історія відвідуваннь</h1>
+<ul id="sessionList"></ul>
+
+<script>
+  const sessionListElement = document.getElementById('sessionList');
+  const sessions = JSON.parse(localStorage.getItem('sessionsList')) || [];
+
+  if (sessions.length === 0) {
+    sessionListElement.innerHTML = '<li>Немає відвідувань.</li>';
+  } else {
+    sessions.forEach((session, index) => {
+      const li = document.createElement('li');
+      li.textContent = `Відвідування ${index + 1}: ${session}`;
+      sessionListElement.appendChild(li);
+    });
+  }
+</script>
+</body>
+</html>
